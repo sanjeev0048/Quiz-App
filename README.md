@@ -15,7 +15,7 @@ An interactive web-based Quiz Application to test knowledge with fun and engagin
 - *JavaScript (ES6)* – Logic & Interactivity  
 
 ## 🎯 Demo
-[Live Demo](https://your-username.github.io/quiz-app)  
+[Live Demo](https://sanjeev0048.github.io/Quiz-App/)  
 
 ## ⚙ Installation & Usage
 1. Clone the repository  
