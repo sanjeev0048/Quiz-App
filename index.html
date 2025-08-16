@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>🧠 Quiz Master</h1>
+            <p>Test your knowledge with interactive quizzes</p>
+        </div>
+
+        <div class="content">
+            <!-- Setup Screen -->
+            <div class="setup-screen active" id="setupScreen">
+                <h2 style="margin-bottom: 30px; color: #333;">Create Your Quiz</h2>
+                
+                <div class="form-group">
+                    <label for="quizTitle">Quiz Title:</label>
+                    <input type="text" id="quizTitle" placeholder="Enter quiz title" value="Sample Knowledge Quiz">
+                </div>
+
+                <div id="questionsList">
+                    <!-- Sample questions will be added here -->
+                </div>
+
+                <div class="add-question" onclick="openQuestionModal()">
+                    <div style="font-size: 2em; margin-bottom: 10px;">➕</div>
+                    <div>Add New Question</div>
+                </div>
+
+                <div class="controls">
+                    <div></div>
+                    <button class="btn" onclick="startQuiz()">Start Quiz</button>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div class="quiz-screen" id="quizScreen">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+
+                <div id="currentQuestion"></div>
+
+                <div class="controls">
+                    <div class="question-info" id="questionInfo"></div>
+                    <div>
+                        <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" style="display: none;">Previous</button>
+                        <button class="btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div class="results-screen" id="resultsScreen">
+                <div class="score-display">
+                    <div class="score-circle" id="scoreCircle">
+                        <div class="score-text" id="scoreText">0%</div>
+                    </div>
+                    <h2 id="resultTitle">Quiz Complete!</h2>
+                    <p id="resultMessage">You've finished the quiz. Great job!</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <button class="btn btn-success" onclick="reviewAnswers()">Review Answers</button>
+                        <button class="btn" onclick="restartQuiz()">Try Again</button>
+                        <button class="btn btn-secondary" onclick="backToSetup()">New Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question Modal -->
+    <div class="modal" id="questionModal">
+        <div class="modal-content">
+            <h3>Add/Edit Question</h3>
+            
+            <div class="form-group">
+                <label for="questionType">Question Type:</label>
+                <select id="questionType" onchange="updateQuestionForm()">
+                    <option value="multiple">Multiple Choice</option>
+                    <option value="single">Single Choice</option>
+                    <option value="fillblank">Fill in the Blank</option>
+                    <option value="truefalse">True/False</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="questionText">Question:</label>
+                <textarea id="questionText" rows="3" placeholder="Enter your question"></textarea>
+            </div>
+
+            <div id="optionsContainer">
+                <!-- Options will be generated here -->
+            </div>
+
+            <div style="margin-top: 20px; display: flex; gap: 10px;">
+                <button class="btn" onclick="saveQuestion()">Save Question</button>
+                <button class="btn btn-secondary" onclick="closeQuestionModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    
+        
+    <script src="script.js"></script>
+</body>
+</html>
+    
